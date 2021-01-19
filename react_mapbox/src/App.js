@@ -1,18 +1,16 @@
-import  React , {Fragment} from 'react';
-import Header from './components/Header.js';
-import Map from './components/Map.js'
-import NavBar from './components/Navbar.js'
-import MainHeader from './components/Header.js'
+import React, { Fragment } from "react";
+import Map from "./components/Map.js";
+import NavBar from "./components/Navbar.js";
+import Sidebar from "./components/Sidebar.js";
 
-const App = ()=> {
+const App = () => {
   return (
     <Fragment>
-      <NavBar>
-        <MainHeader>Dolev</MainHeader>
-      </NavBar>
-      <Map/>
+      <Sidebar>
+        <Map />
+      </Sidebar>
     </Fragment>
   );
-}
+};
 
-export default App
+export default App;
