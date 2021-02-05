@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ReactMapGL, { ViewportProps } from 'react-map-gl';
-import { callbackify } from 'util';
 
 const Map = () => {
   const mapDivRef = useRef<HTMLDivElement>(null);
@@ -10,7 +9,7 @@ const Map = () => {
     longitude: 34.761331,
     zoom: 5,
     height: 0,
-    width: 40,
+    width: 0,
   });
 
   const changeSizes = useCallback(
@@ -30,7 +29,7 @@ const Map = () => {
 
   return (
     <div
-      style={{ width: '100vw', height: 'calc(100vh - 90px)' }}
+      style={{ width: '100vw', height: 'calc(100vh - 87px)' }}
       ref={mapDivRef}
     >
       <ReactMapGL
