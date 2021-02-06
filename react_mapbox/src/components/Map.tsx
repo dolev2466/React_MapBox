@@ -8,6 +8,9 @@ const Map = () => {
     latitude: 31.601305,
     longitude: 34.761331,
     zoom: 5,
+  });
+
+  const [sizes, setSizes] = useState({
     height: 0,
     width: 0,
   });
@@ -15,12 +18,11 @@ const Map = () => {
   const changeSizes = useCallback(
     () =>
       mapDivRef.current &&
-      setViewport({
-        ...viewport,
+      setSizes({
         width: mapDivRef.current.clientWidth,
         height: mapDivRef.current.clientHeight,
       }),
-    []
+    [mapDivRef]
   );
 
   useEffect(() => {
@@ -34,6 +36,8 @@ const Map = () => {
     >
       <ReactMapGL
         {...viewport}
+        height={sizes.height}
+        width={sizes.width}
         mapStyle='mapbox://styles/mapbox/satellite-streets-v11'
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         onViewportChange={(nextViewport: ViewportProps) =>
